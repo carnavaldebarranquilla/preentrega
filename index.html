@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>CAMBIEN EL TÍTULO</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+        <style>
+            body {
+                background: white url(img/cabecera.png) center top no-repeat;
+                background-size: auto 50vh;
+            }
+            header {
+                min-height: 100vh;
+            }
+            .timeline {
+                position: relative;
+                padding: 0;
+                list-style: none;
+            }
+            .timeline:before {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 40px;
+                width: 2px;
+                margin-left: -1.5px;
+                content: "";
+                background-color: #e9ecef;
+            }
+            .timeline > li {
+                position: relative;
+                min-height: 50px;
+                margin-bottom: 50px;
+            }
+            .timeline > li:after,
+            .timeline > li:before {
+                display: table;
+                content: " ";
+            }
+            .timeline > li:after {
+                clear: both;
+            }
+            .timeline > li .timeline-panel {
+                position: relative;
+                float: right;
+                width: 100%;
+                padding: 0 20px 0 100px;
+                text-align: left;
+            }
+            .timeline > li .timeline-panel:before {
+                right: auto;
+                left: -15px;
+                border-right-width: 15px;
+                border-left-width: 0;
+            }
+            .timeline > li .timeline-panel:after {
+                right: auto;
+                left: -14px;
+                border-right-width: 14px;
+                border-left-width: 0;
+            }
+            .timeline > li .timeline-image {
+                position: absolute;
+                z-index: 100;
+                left: 0;
+                width: 80px;
+                height: 80px;
+                margin-left: 0;
+                text-align: center;
+                color: white;
+                border: 7px solid #e9ecef;
+                border-radius: 100%;
+                background-color: #55595c;
+            }
+            .timeline > li .timeline-image h4,
+            .timeline > li .timeline-image .h4 {
+                font-size: 10px;
+                line-height: 14px;
+                margin-top: 12px;
+            }
+            .timeline > li.timeline-inverted > .timeline-panel {
+                float: right;
+                padding: 0 20px 0 100px;
+                text-align: left;
+            }
+            .timeline > li.timeline-inverted > .timeline-panel:before {
+                right: auto;
+                left: -15px;
+                border-right-width: 15px;
+                border-left-width: 0;
+            }
+            .timeline > li.timeline-inverted > .timeline-panel:after {
+                right: auto;
+                left: -14px;
+                border-right-width: 14px;
+                border-left-width: 0;
+            }
+            .timeline > li:last-child {
+                margin-bottom: 0;
+            }
+            .timeline .timeline-heading h4,
+            .timeline .timeline-heading .h4 {
+                margin-top: 0;
+                color: inherit;
+            }
+            .timeline .timeline-heading h4.subheading,
+            .timeline .timeline-heading .subheading.h4 {
+                text-transform: none;
+            }
+            .timeline .timeline-body > ul,
+            .timeline .timeline-body > p {
+                margin-bottom: 0;
+            }
+            @media (min-width: 768px) {
+                .timeline:before {
+                    left: 50%;
+                }
+                .timeline > li {
+                    min-height: 100px;
+                    margin-bottom: 100px;
+                }
+                .timeline > li .timeline-panel {
+                    float: left;
+                    width: 41%;
+                    padding: 0 20px 20px 30px;
+                    text-align: right;
+                }
+                .timeline > li .timeline-image {
+                    left: 50%;
+                    width: 100px;
+                    height: 100px;
+                    margin-left: -50px;
+                }
+                .timeline > li .timeline-image h4,
+                .timeline > li .timeline-image .h4 {
+                    font-size: 13px;
+                    line-height: 18px;
+                    margin-top: 16px;
+                }
+                .timeline > li.timeline-inverted > .timeline-panel {
+                    float: right;
+                    padding: 0 30px 20px 20px;
+                    text-align: left;
+                }
+            }
+            @media (min-width: 992px) {
+                .timeline > li {
+                    min-height: 150px;
+                }
+                .timeline > li .timeline-panel {
+                    padding: 0 20px 20px;
+                }
+                .timeline > li .timeline-image {
+                    width: 150px;
+                    height: 150px;
+                    margin-left: -75px;
+                }
+                .timeline > li .timeline-image h4,
+                .timeline > li .timeline-image .h4 {
+                    font-size: 18px;
+                    line-height: 26px;
+                    margin-top: 30px;
+                }
+                .timeline > li.timeline-inverted > .timeline-panel {
+                    padding: 0 20px 20px;
+                }
+            }
+            @media (min-width: 1200px) {
+                .timeline > li {
+                    min-height: 170px;
+                }
+                .timeline > li .timeline-panel {
+                    padding: 0 20px 20px 100px;
+                }
+                .timeline > li .timeline-image {
+                    width: 170px;
+                    height: 170px;
+                    margin-left: -85px;
+                }
+                .timeline > li .timeline-image h4,
+                .timeline > li .timeline-image .h4 {
+                    margin-top: 40px;
+                }
+                .timeline > li.timeline-inverted > .timeline-panel {
+                    padding: 0 100px 20px 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="d-flex align-items-end">
+            <div class="container-fluid">
+                <div class="row my-auto">
+                    <div class="col-md-8 col-lg-6 mx-auto pb-3 text-center">
+                        <h4 class="fs-6">And you will read this last</h4>
+                        <h1 class="display-4">You will read this first</h1>
+                        <h2 class="fs-3">And then you will read this</h2>
+                        <h3 class="fs-5">Then this one</h3>
+                        <p class="lead my-4">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla egestas efficitur felis sed ullamcorper. In accumsan nisi lorem, eu lacinia turpis elementum sed. Cras in ullamcorper ligula, quis placerat tellus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="container">
+                <div class="row">
+                     
+                    <div class="col-sm-10 col-md-8 mx-auto">
+                        <div class="row align-items-end mx-5">
+                            <div class="col-md-8">
+                                <svg class="w-100" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                    <rect width="100%" height="100%" fill="#ccc" />
+                                </svg>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <h4 class="pt-3">Mapa</h4>
+                                <p class="text-black-50 pb-5">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="text-center">
+                        <h3 class="my-5">Historia</h3>
+                    </div>
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <svg class="rounded-circle img-fluid" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#55595c" />
+                                </svg>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Subtítulo</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore
+                                        laudantium consectetur!
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <svg class="rounded-circle img-fluid" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#55595c" />
+                                </svg>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Subtítulo</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore
+                                        laudantium consectetur!
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <svg class="rounded-circle img-fluid" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#55595c" />
+                                </svg>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Subtítulo</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore
+                                        laudantium consectetur!
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <svg class="rounded-circle img-fluid" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                    <rect width="100%" height="100%" fill="#55595c" />
+                                </svg>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Subtítulo</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore
+                                        laudantium consectetur!
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                               
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+                            <div class="col-12 text-center">
+                        <h3 class="mt-5 mb-3">Disfraces y Bailes</h3>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container my-5">
+                <img src="img/dancing.gif" class="w-100"/>
+
+                <div class="container py-5">
+                <div class="row">
+                <div class="col-sm-9 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto">
+                  
+                   <br> 
+                    <div class="row text-center ">
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Disfraz</h4>
+                            <p class="small text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                   
+                            <h4 class="fs-6 text-center">Música</h4>
+                            <p class="small text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Baile</h4>
+                            <p class="small text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.</p>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="img/dancing.gif" class="w-100"/>
+
+                <div class="container py-5">
+                <div class="row">
+                <div class="col-sm-9 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto">
+                  
+                   <br> 
+                    <div class="row text-center ">
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Disfraz</h4>
+                            <p class="small text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                   
+                            <h4 class="fs-6 text-center">Música</h4>
+                            <p class="small text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Baile</h4>
+                            <p class="small text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.</p>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="img/dancing.gif" class="w-100"/>
+
+                <div class="container py-5">
+                <div class="row">
+                <div class="col-sm-9 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto">
+                  
+                   <br> 
+                    <div class="row text-center ">
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Disfraz</h4>
+                            <p class="small text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                   
+                            <h4 class="fs-6 text-center">Música</h4>
+                            <p class="small text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.</p>
+                        </div>
+                        <div class="col-6 col-md-4 mb-3">
+                          
+                            <h4 class="fs-6 text-center">Baile</h4>
+                            <p class="small text-start">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consectetur vel purus non blandit. Integer aliquet gravida est, sit amet scelerisque purus feugiat nec.</p>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            </section>
+
+            <section class="container my-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="my-5 text-center">Comidas</h3>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <svg class="w-100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                            <rect width="100%" height="100%" fill="#ccc" />
+                        </svg>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <svg class="w-100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                            <rect width="100%" height="100%" fill="#ccc" />
+                        </svg>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <svg class="w-100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                            <rect width="100%" height="100%" fill="#ccc" />
+                        </svg>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <svg class="w-100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                            <rect width="100%" height="100%" fill="#ccc" />
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container-fluid g-0">
+                <div class="row g-0">
+                    <div class="col-12 text-center">
+                        <h3 class="mt-5 mb-3">Trayecto</h3>
+                        <svg class="w-100" viewBox="0 0 40 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                            <rect width="100%" height="100%" fill="#ccc" />
+                        </svg>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-white">
+            <div class="container">
+                <div class="row py-3">
+                    <div class="col-12">
+                        <p class="d-flex justify-content-between small p-1 m-0">
+                            <!--reemplaza el # que sigue con la URL de su cuenta de organización en GitHub-->
+                            <a href="https://carnavaldebarranquilla.github.io/maqueta2/" class="link-dark">Carnaval de Barranquilla</a>
+                            <a href="https://github.com/profesorfaco/dno075-2022-1/" class="link-dark">Infografía Digital</a>
+                            <a href="https://github.com/profesorfaco/dno075-2022-1/tree/main/clase-12" class="d-none d-lg-inline link-dark">Lunes 13 de junio, 2022</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>
